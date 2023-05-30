@@ -1,7 +1,20 @@
-# Jenkins Custom Images
-A set of Dockerfile builds with Python inside container image
+# Overview
+
+## Jenkins Custom Images
+A set of Dockerfile builds with Python inside container image. 
+
+## Python Commands
+Jenkins will gain the capability to run Python commands on build.
+
+## Docker commands
+Also this custom image can run docker commands on the host container.
+Example:
+````
+docker ps 
+````
 
 
+## Building Images
 Build Example Command
 ````
 docker build -t mycustomimage:latest -f builds/custom-jenkins-python-310.Dockerfile .
