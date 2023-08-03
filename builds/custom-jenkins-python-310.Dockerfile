@@ -7,6 +7,8 @@ RUN uname -a
 RUN apt-get -yqq update
 RUN apt-get -yqq install docker.io
 RUN apt-get -yqq install wget
+RUN apt-get -yqq install zip
+RUN apt-get -yqq install unzip
 RUN apt -y install zlib1g-dev build-essential libgdbm-dev libncurses5-dev libssl-dev libnss3-dev libffi-dev libreadline-dev wget libsqlite3-dev libbz2-dev
 
 ENV PATH /usr/local/bin:$PATH
@@ -131,4 +133,6 @@ RUN set -eux; \
 # Clean up
 WORKDIR /
 RUN usermod -g docker jenkins
+RUN pip3 install virtualenv
+
 USER jenkins 
