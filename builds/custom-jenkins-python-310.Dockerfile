@@ -1,6 +1,8 @@
 FROM jenkins/jenkins:lts
 
 # Fork from BUILD https://github.com/docker-library/python/blob/331890ef059fae05f84c652520b78c340526dc71/3.10/bullseye/Dockerfile
+RUN sysctl net.ipv6.conf.all.disable_ipv6=1
+RUN sysctl net.ipv6.conf.default.disable_ipv6=1
 USER root
 RUN uname -a
 
@@ -10,8 +12,7 @@ RUN apt-get -yqq install wget
 RUN apt-get -yqq install zip
 RUN apt-get -yqq install unzip
 RUN apt -y install zlib1g-dev build-essential libgdbm-dev libncurses5-dev libssl-dev libnss3-dev libffi-dev libreadline-dev wget libsqlite3-dev libbz2-dev
-RUN sysctl net.ipv6.conf.all.disable_ipv6=1
-RUN sysctl net.ipv6.conf.default.disable_ipv6=1
+
 ENV PATH /usr/local/bin:$PATH
 
 # http://bugs.python.org/issue19846
