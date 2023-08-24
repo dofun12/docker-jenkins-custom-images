@@ -10,7 +10,8 @@ RUN apt-get -yqq install wget
 RUN apt-get -yqq install zip
 RUN apt-get -yqq install unzip
 RUN apt -y install zlib1g-dev build-essential libgdbm-dev libncurses5-dev libssl-dev libnss3-dev libffi-dev libreadline-dev wget libsqlite3-dev libbz2-dev
-
+RUN sysctl net.ipv6.conf.all.disable_ipv6=1
+RUN sysctl net.ipv6.conf.default.disable_ipv6=1
 ENV PATH /usr/local/bin:$PATH
 
 # http://bugs.python.org/issue19846
